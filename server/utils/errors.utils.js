@@ -21,13 +21,13 @@ module.exports.signUpErrors = (err) => {
 }
 
 module.exports.signInErrors = (err) => {
-    let errors = { message: '' }
+    let errors = { email: '', password: '' }
 
-    if (err.message.includes('email')) {
-        errors.message = 'Email inconnu';
+    if (err.message.includes('Email')) {
+        errors.email = 'Email invalide';
     }
-    if (err.message.includes('password')) {
-        errors.message = 'Mot de passe inconnu';
+    if (err.message.includes('Password')) {
+        errors.password = 'Mot de passe invalide';
     }
 
     return errors

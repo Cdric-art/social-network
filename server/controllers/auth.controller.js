@@ -17,7 +17,7 @@ module.exports.signUp = async (req, res) => {
         .then(() => res.status(201).json({ message: 'Utilisateur créé !', userId: user._id }))
         .catch(err => {
             const errors = signUpErrors(err)
-            res.status(400).json({ errors })
+            res.status(200).json({ errors })
         })
 };
 
@@ -29,8 +29,8 @@ module.exports.signIn = async (req, res) => {
         res.cookie('jwt', token, { httpOnly: true, maxAge})
         res.status(200).json({ user: user._id })
     } catch (err) {
-        const errors = signInErrors({ message: 'email ou password incorrect !' })
-        res.status(400).json({ errors })
+        const errors = signInErrors(err)
+        res.status(200).json({ errors })
     }
 };
 
