@@ -3,4 +3,4 @@
 
 Social Network
 
-NodeJs / Express / MongoDB / ReactJs
+NodeJs - Express - MongoDB - React - Redux

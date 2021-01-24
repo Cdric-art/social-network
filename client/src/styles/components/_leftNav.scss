@@ -37,16 +37,15 @@
           transform: scale(1);
           @media screen and(max-width: 590px) {
             background: $color-1;
-            height: 34px;
-            width: 34px;
+            height: 30px;
+            width: 30px;
           }
         }
 
         img {
-          @media screen and(max-width: 590px) {
-            height: 34px;
-            width: 34px;
-          }
+          height: 30px;
+          width: 30px;
+          margin-top: 8px;
         }
       }
 
@@ -55,23 +54,15 @@
 
         &::after {
           content: "";
-          height: 40px;
-          width: 5px;
+          height: 28px;
+          width: 3px;
           position: absolute;
-          background: $color-1;
+          background: $color-2;
           left: -7px;
           bottom: 8px;
           border-radius: 40px;
-          transform: scaleY(0);
-          animation: scale 1.5s ease forwards;
 
-          @keyframes scale {
-            to {
-              transform: scaleY(1);
-            }
-          }
           @media screen and(max-width: 590px) {
-            height: 33px;
             left: -8px;
           }
         }
