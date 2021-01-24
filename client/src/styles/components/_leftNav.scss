@@ -17,29 +17,8 @@
         transition: 0.1s;
         display: inline-block;
 
-        &:before {
-          transition: .15s ease;
-          transform: scale(0);
-          transform-origin: center;
-          z-index: -10;
-          content: "";
-          height: 45px;
-          width: 45px;
-          position: absolute;
-          background: $color-4;
-          border-radius: 50px;
-        }
-
         &:hover {
           transform: scale(1.02);
-        }
-        &:hover::before {
-          transform: scale(1);
-          @media screen and(max-width: 590px) {
-            background: $color-1;
-            height: 30px;
-            width: 30px;
-          }
         }
 
         img {

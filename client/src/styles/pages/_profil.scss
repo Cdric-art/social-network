@@ -3,7 +3,7 @@
   max-width: 1200px;
 
   .icons {
-    top: 80px;
+    top: 140px;
   }
 
   .log-container {
@@ -184,10 +184,6 @@
         input[type="submit"] {
           margin-top: 10px;
           border-radius: 20px;
-
-          &:hover {
-            letter-spacing: 1px;
-          }
         }
       }
       p {
