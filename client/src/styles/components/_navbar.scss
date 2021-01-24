@@ -2,32 +2,13 @@ nav {
   position: fixed;
   width: 100%;
   height: 45px;
-  border-radius: 6px;
-  box-shadow: 18px 1px 0px $color-1, 22px 4px 0px 0px $shadow;
+  box-shadow: $shadow-2;
   z-index: 10;
   top: 0;
-
-  @media screen and(max-width: 1251px) {
-    padding: 0 20px;
-  }
-
-  &::after {
-    content: "";
-    height: 45px;
-    width: 110%;
-    left: -20px;
-    top:0;
-    position: absolute;
-    backdrop-filter: blur(3px);
-    background: rgba(255, 255, 255, 0.86);
-    z-index: -8;
-  }
 
   .nav-container {
     display: flex;
     width: 100%;
-    max-width: 1190px;
-    margin: 0 auto;
     justify-content: space-between;
     height: 45px;
     align-items: center;
@@ -50,7 +31,6 @@ nav {
     ul {
       display: flex;
       align-items: center;
-      justify-content: center;
       width: 35%;
       justify-content: space-between;
       font-size: 1.2rem;
@@ -76,7 +56,6 @@ nav {
           display: grid;
           align-items: center;
           justify-items: center;
-          height: 100%;
         }
       }
     }
