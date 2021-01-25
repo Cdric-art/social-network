@@ -43,13 +43,13 @@ module.exports.follow = async (req, res) => {
     }
     await UserModel.findOneAndUpdate({ _id: req.params.id },
         {
-            following : req.body.idToFollow
+            $push: { following : req.body.idToFollow }
         })
     await UserModel.findOneAndUpdate({ _id: req.body.idToFollow },
         {
-            followers: req.params.id
+            $push: { followers: req.params.id }
         })
-        .then((doc) => res.status(200).json({ doc }))
+        .then(() => res.status(200).json({ message: "User follow" }))
         .catch(err => res.status(400).json({ err }))
 }
 
