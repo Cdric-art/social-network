@@ -256,10 +256,10 @@
       top: 10%;
       left: 50%;
       transform: translate(-100%);
-      background: $color-2;
+      background: #badeff;
       padding: 25px;
       border-radius: 20px;
-      box-shadow: 0 0 2px rgba(131, 130, 130, 0.356);
+      box-shadow: $shadow;
       overflow: auto;
       transform: scaleY(0);
       transform-origin: center;
