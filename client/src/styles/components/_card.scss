@@ -1,7 +1,7 @@
 .card-container {
   display: grid;
   grid-template-columns: 66px 1fr;
-  border: 2px solid $color-2;
+  border: 2px solid $color-4;
   padding: 16px;
   border-radius: 20px;
   margin: 8px auto;
@@ -52,6 +52,7 @@
       display: flex;
       justify-content: space-between;
       margin: 2px 0 4px;
+      min-height: 35px;
 
       @media screen and(max-width: 590px) {
         margin: 12px 0 14px;
@@ -177,8 +178,6 @@
     .card-footer {
       display: flex;
       align-items: center;
-      justify-content: center;
-      justify-content: space-between;
       padding: 12px 0 4px;
 
       img {
@@ -195,6 +194,7 @@
       .like-container {
         display: flex;
         align-items: center;
+        margin-right: 8%;
 
         span {
           font-size: 1.02rem;
