@@ -1,16 +1,30 @@
 import React from 'react';
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { dateParser, isEmpty } from "../Utils.js";
 import FollowHandler from "../profil/FollowHandler.jsx";
 import LikeButton from "./LikeButton.jsx";
+import { updatePost } from "../../actions/post.action.js";
+import DeleteCard from "./DeleteCard.jsx";
+import CardComments from "./CardComments.jsx";
 
 const Card = ({ post }) => {
 
     const [isLoading, setIsLoading] = useState(true);
+    const [isUpdated, setIsUpdated] = useState(false);
+    const [textUpdate, setTextUpdate] = useState(null);
+    const [showComments, setShowComments] = useState(false);
     const usersData = useSelector(state => state.usersReducer);
     const userData = useSelector(state => state.userReducer);
+    const dispatch = useDispatch();
+
+    const updateItem = () => {
+        if (textUpdate) {
+            dispatch(updatePost(post._id, textUpdate))
+        }
+        setIsUpdated(false)
+    }
 
     useEffect(() => {
         if (!isEmpty(usersData[0])) {
@@ -51,20 +65,37 @@ const Card = ({ post }) => {
                             </div>
                             <span>{dateParser(post.createdAt)}</span>
                         </div>
-                        <p>{post.message}</p>
+                        {!isUpdated && <p>{post.message}</p>}
+                        {isUpdated && (
+                            <div className="update-post">
+                                <textarea defaultValue={post.message} onChange={(e) => setTextUpdate(e.target.value)} />
+                                <div className="button-container">
+                                    <button className="btn" onClick={updateItem}>Valider modifications</button>
+                                </div>
+                            </div>
+                        )}
                         {post.picture && (
                             <img src={post.picture} alt={post.picture} className="card-pic" />
                             )}
                         {post.video && (
                             <iframe width="500" height="300" src={post.video} frameBorder="0" title={post._id} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                         )}
+                        {userData._id === post.posterId && (
+                            <div className="button-container">
+                                <div onClick={() => setIsUpdated(!isUpdated)}>
+                                    <img src="./img/icons/edit.svg" alt="edit"/>
+                                </div>
+                                <DeleteCard id={post._id} />
+                            </div>
+                        )}
                         <div className="card-footer">
                             <LikeButton post={post} />
                             <div className="comment-icon">
-                                <img src="./img/icons/message1.svg" alt="comment"/>
+                                <img onClick={() => setShowComments(!showComments)} src="./img/icons/message1.svg" alt="comment"/>
                                 {post.comments && <span>{post.comments.length}</span>}
                             </div>
                         </div>
+                        {showComments && <CardComments post={post}/>}
                     </div>
                 </>
             )}

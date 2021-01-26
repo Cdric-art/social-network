@@ -211,7 +211,8 @@
     .comment-container {
       display: grid;
       grid-template-columns: 50px 1fr;
-      border: 1px solid $color-2;
+      border: 1px solid $color-4;
+      box-shadow: $shadow;
       padding: 15px;
       margin: 5px 0;
       border-radius: 20px 20px 20px 6px;
@@ -243,7 +244,14 @@
             font-family: $font-1;
           }
           span {
-            transform: translateX(6px);
+            transform: translate(6px, 3px);
+            cursor: pointer;
+
+            img {
+              height: 15px;
+              width: 15px;
+              box-shadow: none;
+            }
           }
         }
 
