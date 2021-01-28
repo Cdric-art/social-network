@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { isEmpty, timestampParser } from "../Utils.js";
 import FollowHandler from "../profil/FollowHandler.jsx";
+import { addComment, getPosts } from "../../actions/post.action.js";
+import EditDeleteComment from "./EditDeleteComment.jsx";
 
 const CardComments = ({ post }) => {
 
@@ -14,7 +16,10 @@ const CardComments = ({ post }) => {
     const handleComment = (e) => {
         e.preventDefault();
         if (text) {
-
+            dispatch(addComment(post._id, userData._id, text, userData.pseudo))
+                .then(() => dispatch(getPosts()))
+                .then(() => setText(''))
+                .catch(err => console.log({ err }))
         }
     }
 
@@ -40,6 +45,7 @@ const CardComments = ({ post }) => {
                             <span>{timestampParser(comment.timestamp)}</span>
                         </div>
                         <p>{comment.text}</p>
+                        <EditDeleteComment comment={comment} postId={post._id}/>
                     </div>
                 </div>
             ))}
