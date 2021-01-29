@@ -13,6 +13,8 @@ module.exports.readPost = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
+    let time = Date.now();
+
     if (req.file !== null) {
         try {
             if (req.file.detectedMimeType !== "image/jpg" && req.file.detectedMimeType !== "image/jpeg" && req.file.detectedMimeType !== "image/png") {
@@ -26,7 +28,7 @@ module.exports.createPost = async (req, res) => {
             return res.status(400).json({ errors })
         }
 
-        let fileName = req.body.posterId + Date.now() + ".jpg";
+        let fileName = req.body.posterId + time + ".jpg";
 
         await pipeline(
             req.file.stream,
@@ -39,7 +41,7 @@ module.exports.createPost = async (req, res) => {
     const newPost = new PostModel({
         posterId: req.body.posterId,
         message: req.body.message,
-        picture: req.file !== null ? "./uploads/posts/" + req.body.posterId + Date.now() + ".jpg" : '',
+        picture: req.file !== null ? "./uploads/posts/" + req.body.posterId + time + ".jpg" : '',
         video: req.body.video,
         likers: [],
         comments: []
