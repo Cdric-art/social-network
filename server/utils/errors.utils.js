@@ -37,10 +37,10 @@ module.exports.uploadErrors = (err) => {
     let errors = { format: '', maxSize: '' }
 
     if (err.message.includes('Invalid file')) {
-        errors.format = 'Format incompatible';
+        errors.format = 'Format de l\'image incompatible';
     }
-    if (err.message.includes('Max size')) {
-        errors.format = 'Fichier dépasse 50Mo';
+    if (err.message.includes('Maxsize')) {
+        errors.maxSize = 'L\'image ne peut pas dépasser 50Mo';
     }
 
     return errors

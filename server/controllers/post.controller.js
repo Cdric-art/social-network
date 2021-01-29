@@ -20,12 +20,12 @@ module.exports.createPost = async (req, res) => {
             if (req.file.detectedMimeType !== "image/jpg" && req.file.detectedMimeType !== "image/jpeg" && req.file.detectedMimeType !== "image/png") {
                 throw Error('Invalid file')
             }
-            if (req.file > 500000) {
-                throw Error('Max size');
+            if (req.file.size > 500000) {
+                throw Error('Maxsize');
             }
         } catch (err) {
             const errors = uploadErrors(err)
-            return res.status(400).json({ errors })
+            return res.status(200).json({ errors })
         }
 
         let fileName = req.body.posterId + time + ".jpg";
@@ -48,7 +48,7 @@ module.exports.createPost = async (req, res) => {
     });
     await newPost.save()
         .then((post) => res.status(201).json({ post }))
-        .catch(err => res.status(400).json({ err }))
+        .catch(errors => res.status(200).json({ errors }))
 }
 
 module.exports.updatePost = async (req, res) => {
