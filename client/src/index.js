@@ -10,12 +10,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import rootReducer from './reducers';
 import { getUsers } from "./actions/users.actions.js";
+import { getPosts } from "./actions/post.action.js";
 
 const store = createStore(
     rootReducer, composeWithDevTools(applyMiddleware(thunk))
 )
 
 store.dispatch(getUsers());
+store.dispatch(getPosts());
 
 ReactDOM.render(
   <Provider store={store}>

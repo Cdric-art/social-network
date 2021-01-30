@@ -1,5 +1,5 @@
 .trending-container {
-  background: $color-2;
+  background: #c9e9ff;
   border-radius: 20px;
   margin-bottom: 14px;
   padding: 20px;
@@ -13,14 +13,14 @@
   ul {
 
     li {
-      margin: 5px 0;
+      margin: 10px 0;
       display: grid;
       align-items: center;
       grid-template-columns: 68px 1fr;
       background: $color-4;
       border-radius: 20px;
       padding: 16px;
-      box-shadow: 5px 7px 20px 9px #ff7c7732;
+      box-shadow: $shadow;
       transition: .2s;
 
       &:hover {
@@ -44,6 +44,7 @@
         height: 56px;
 
         p {
+          color: $black;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
@@ -51,6 +52,7 @@
           font-size: .9rem;
         }
         span {
+          font-size: .8rem;
           color: $color-1;
           font-family: $font-3;
           position: absolute;

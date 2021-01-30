@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import LeftNav from "../components/LeftNav.jsx";
 import Thread from "../components/Thread.jsx";
 import { UidContext } from "../components/AppContext.jsx";
-import { useContext } from "react";
 import NewPost from "../components/post/NewPost.jsx";
 import Log from "../components/log/Log.jsx";
+import Trends from "../components/Trends.jsx";
 
 const Home = () => {
 
@@ -12,12 +12,19 @@ const Home = () => {
 
     return (
         <div className="home">
-            <LeftNav />
+            <LeftNav/>
             <div className="main">
                 <div className="home-header">
-                    {uid ? <NewPost /> : <Log signIn={true} signUp={false} />}
+                    {uid ? <NewPost/> : <Log signIn={true} signUp={false}/>}
                 </div>
-                <Thread />
+                <Thread/>
+            </div>
+            <div className="right-side">
+                <div className="right-side-container">
+                    <div className="wrapper">
+                        <Trends />
+                    </div>
+                </div>
             </div>
         </div>
     );
