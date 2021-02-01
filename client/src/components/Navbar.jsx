@@ -17,7 +17,7 @@ const Navbar = () => {
 					<NavLink exact to="/">
 						<div className="logo">
 							<img src="./img/icon.png" alt="logo"/>
-							<h3>Whirriors</h3>
+							<h3>Pineapple</h3>
 						</div>
 					</NavLink>
 				</div>
