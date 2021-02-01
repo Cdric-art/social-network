@@ -47,7 +47,7 @@ export const updateBio = (userId, bio) => {
 			url: `${process.env.REACT_APP_API_URL}api/user/${userId}`,
 			data: { bio }
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({ type: UPDATE_BIO, payload: bio});
 			})
 			.catch(err => console.log({ err }));
@@ -61,7 +61,7 @@ export const followUser = (followerId, idToFollow) => {
 			url: `${process.env.REACT_APP_API_URL}api/user/follow/${followerId}`,
 			data: { idToFollow }
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({ type: FOLLOW_USER, payload: {idToFollow}});
 			})
 			.catch(err => console.log({ err }));
@@ -75,7 +75,7 @@ export const unfollowUser = (followerId, idToUnfollow) => {
 			url: `${process.env.REACT_APP_API_URL}api/user/unfollow/${followerId}`,
 			data: { idToUnfollow }
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({ type: UNFOLLOW_USER, payload: {idToUnfollow}});
 			})
 			.catch(err => console.log({ err }));

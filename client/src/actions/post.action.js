@@ -56,7 +56,7 @@ export const likePost = (postId, userId) => {
 			url: `${process.env.REACT_APP_API_URL}api/post/like-post/${postId}`,
 			data: {id: userId}
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({type: LIKE_POST, payload: {postId, userId}});
 			})
 			.catch(err => console.log({err}));
@@ -70,7 +70,7 @@ export const unlikePost = (postId, userId) => {
 			url: `${process.env.REACT_APP_API_URL}api/post/unlike-post/${postId}`,
 			data: {id: userId}
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({type: UNLIKE_POST, payload: {postId, userId}});
 			})
 			.catch(err => console.log({err}));
@@ -84,7 +84,7 @@ export const updatePost = (postId, message) => {
 			url: `${process.env.REACT_APP_API_URL}api/post/${postId}`,
 			data: {message}
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({type: UPDATE_POST, payload: {message, postId}});
 			})
 			.catch(err => console.log({err}));
@@ -97,7 +97,7 @@ export const deletePost = (postId) => {
 			method: 'delete',
 			url: `${process.env.REACT_APP_API_URL}api/post/${postId}`,
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({type: DELETE_POST, payload: {postId}});
 			})
 			.catch(err => console.log({err}));
@@ -115,7 +115,7 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
 				commenterPseudo
 			}
 		})
-			.then((res) => {
+			.then(() => {
 				dispatch({type: ADD_COMMENT, payload: {postId}});
 			})
 			.catch(err => console.log({err}));
@@ -132,7 +132,7 @@ export const editComment = (postId, commentId, text) => {
 				text
 			}
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({type: EDIT_COMMENT, payload: {postId, commentId, text}});
 			})
 			.catch(err => console.log({err}));
@@ -146,7 +146,7 @@ export const deleteComment = (postId, commentId) => {
 			url: `${process.env.REACT_APP_API_URL}api/post/delete-comment-post/${postId}`,
 			data: {commentId}
 		})
-			.then(res => {
+			.then(() => {
 				dispatch({type: DELETE_COMMENT, payload: {postId, commentId}});
 			})
 			.catch(err => console.log({err}));

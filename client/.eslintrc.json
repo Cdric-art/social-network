@@ -39,8 +39,7 @@
         "react/jsx-uses-vars": "error",
         "react/prop-types": "off",
         "react/no-unescaped-entities": "off",
-        "no-unused-vars": "warn",
-        "no-unescapes-entities": "off"
+        "no-unused-vars": "warn"
     },
     "settings": {
         "react": {

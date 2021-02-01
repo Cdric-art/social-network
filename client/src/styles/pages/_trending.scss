@@ -6,7 +6,7 @@
 
   @media screen and(max-width: 990px) {
     grid-template-columns: 60px 1fr;
-    margin: 58px 20px 50px
+    margin: 100px 20px 50px
   }
 
   @media screen and(max-width: 590px) {
@@ -21,7 +21,7 @@
   .right-side {
     position: relative;
     width: 100%;
-    margin: 0px 0 0 14px;
+    margin: 0 0 0 14px;
   
     .right-side-container {
       position: fixed;
