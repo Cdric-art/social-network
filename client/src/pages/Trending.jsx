@@ -5,6 +5,7 @@ import LeftNav from '../components/LeftNav.jsx';
 import { isEmpty } from '../components/Utils.js';
 import Card from '../components/post/Card.jsx';
 import Trends from '../components/Trends.jsx';
+import FriendsHint from '../components/profil/FriendsHint.jsx';
 
 const Trending = () => {
 
@@ -24,6 +25,7 @@ const Trending = () => {
 			<div className="right-side">
 				<div className="right-side-container">
 					<Trends />
+					{uid && <FriendsHint/>}
 				</div>
 			</div>
 		</div>
