@@ -39,7 +39,7 @@ const corsOption = {
 	'methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
 	'preflightContinue': false
 };
-app.use(cors());
+app.use(cors(corsOption));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
