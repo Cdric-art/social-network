@@ -33,7 +33,7 @@ const app = express();
     next();
 });*/
 const corsOption = {
-	origin: process.env.CLIENT_URL,
+	origin: [process.env.CLIENT_URL, 'http://localhost:3000'],
 	credentials: true,
 	'allowedHeaders': ['sessionId', 'Content-Type'],
 	'exposedHeaders': ['sessionId'],
