@@ -46,16 +46,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 
+// Static server
+app.use(express.static(path.join(__dirname, 'client' ,'build')));
+app.get('/', (req, res) => {
+	res.status(200).sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
 // JWT
 app.get('*', checkUser);
 app.get('/jwtid', requireAuth, (req, res) => {
 	res.status(200).send(res.locals.user._id);
-});
-
-app.use(express.static(path.join(__dirname, 'client' ,'build')));
-
-app.get('/', (req, res) => {
-	res.status(200).sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 // ROUTES
