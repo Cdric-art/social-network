@@ -4,12 +4,13 @@
   "description": "Social Network",
   "main": "server.js",
   "scripts": {
-    "start": "server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js",
     "lint": "eslint --fix ./"
   },
   "engines": {
-    "node": "15.x"
+    "node": "14.x",
+    "npm": "6.x"
   },
   "keywords": [],
   "author": "Cdric_art",
