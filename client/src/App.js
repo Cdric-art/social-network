@@ -21,7 +21,7 @@ const App = () => {
 				.catch(err => console.log(err));
 		};
 		fetchToken()
-			.then(() => console.log({uid}))
+			.then(() => console.log('Uid confirm'))
 			.catch(err => console.log(err));
 
 		if (uid) {

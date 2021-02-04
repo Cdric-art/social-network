@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { isEmpty } from '../Utils.js';
 import FollowHandler from './FollowHandler.jsx';
+import { NavLink } from 'react-router-dom';
 
 const FriendsHint = () => {
 
@@ -55,8 +56,10 @@ const FriendsHint = () => {
 							if (hint === usersData[i]._id) {
 								return (
 									<li className="user-hint" key={hint}>
-										<img src={usersData[i].picture} alt={usersData[i].picture}/>
-										<p>{usersData[i].pseudo}</p>
+										<NavLink exact to={`/public-profil/${usersData[i]._id}`}>
+											<img src={usersData[i].picture} alt={usersData[i].picture}/>
+											<p>{usersData[i].pseudo}</p>
+										</NavLink>
 										<FollowHandler idToFollow={usersData[i]._id} type={'suggestion'}/>
 									</li>
 								);

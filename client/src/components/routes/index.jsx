@@ -1,20 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import Home from '../../pages/Home';
 import Profil from '../../pages/Profil';
 import Trending from '../../pages/Trending.jsx';
 import Navbar from '../Navbar.jsx';
+import PublicProfil from '../../pages/PublicProfil.jsx';
 
 const Index = () => {
 	return (
 		<Router>
-			<Navbar />
+			<Navbar/>
 			<Switch>
 				<Route exact path="/" component={Home}/>
 				<Route exact path="/profil" component={Profil}/>
+				<Route exact path="/public-profil/:id" component={PublicProfil}/>
 				<Route exact path="/trending" component={Trending}/>
-				<Redirect to='/' />
+				<Redirect to='/'/>
 			</Switch>
 		</Router>
 	);
