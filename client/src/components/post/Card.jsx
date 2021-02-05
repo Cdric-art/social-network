@@ -57,7 +57,7 @@ const Card = ({post}) => {
 											<>
 												<h3 key={user._id}>{user.pseudo}</h3>
 												{post.posterId !== userData._id && (
-													<FollowHandler idToFollow={post.posterId} type={'card'}/>
+													<FollowHandler key={user.posterId} idToFollow={post.posterId} type={'card'}/>
 												)}
 											</>
 										);

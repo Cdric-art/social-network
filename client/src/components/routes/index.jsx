@@ -6,6 +6,7 @@ import Profil from '../../pages/Profil';
 import Trending from '../../pages/Trending.jsx';
 import Navbar from '../Navbar.jsx';
 import PublicProfil from '../../pages/PublicProfil.jsx';
+import MyFollow from '../../pages/MyFollow.jsx';
 
 const Index = () => {
 	return (
@@ -16,6 +17,7 @@ const Index = () => {
 				<Route exact path="/profil" component={Profil}/>
 				<Route exact path="/public-profil/:id" component={PublicProfil}/>
 				<Route exact path="/trending" component={Trending}/>
+				<Route exact path="/my-follow" component={MyFollow}/>
 				<Redirect to='/'/>
 			</Switch>
 		</Router>
