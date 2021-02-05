@@ -7,21 +7,24 @@
   }
 
   .public-profil__container {
-    display: grid;
-    grid-template-columns: 40% 60%;
 
-
-    @media screen and(max-width: 700px) {
-      grid-template-columns: 1fr;
+    .part-container {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 50px 0 20px 50px;
     }
 
-    .left-part {
+    .left-part-profil {
+      position: fixed;
       background: $color-4;
       border-radius: 20px;
       padding: 25px;
-      margin: 50px 5px 20px 50px;
       text-align: center;
       color: $black;
+      margin-top: 8px;
+      min-width: 350px;
 
       img {
         height: 180px;
@@ -72,6 +75,10 @@
       .btn-follow {
         margin-top: 1rem;
       }
+    }
+    .right-part-profil {
+      max-width: 780px;
+      margin-left: auto;
     }
   }
 }

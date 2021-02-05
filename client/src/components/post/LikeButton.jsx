@@ -34,7 +34,7 @@ const LikeButton = ({ post }) => {
 		<div className="like-container">
 			{uid === null && (
 				<Popup
-					trigger={<img src="./img/icons/heart.svg" alt="like"/>}
+					trigger={<img src={__dirname + './img/icons/heart.svg'} alt="like"/>}
 					position={['bottom center', 'bottom right', 'bottom left']}
 					closeDocumentClick
 				>
@@ -42,10 +42,10 @@ const LikeButton = ({ post }) => {
 				</Popup>
 			)}
 			{uid && !liked && (
-				<img onClick={like} src="./img/icons/heart.svg" alt="like"/>
+				<img onClick={like} src={__dirname + './img/icons/heart.svg'} alt="like"/>
 			)}
 			{uid && liked && (
-				<img onClick={unlike} src="./img/icons/heart-filled.svg" alt="like"/>
+				<img onClick={unlike} src={__dirname + './img/icons/heart-filled.svg'} alt="like"/>
 			)}
 			<span>{post.likers && post.likers.length}</span>
 		</div>

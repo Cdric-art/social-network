@@ -30,7 +30,7 @@ const CardComments = ({ post }) => {
 					<div className="left-part">
 						{!isEmpty(usersData[0]) && usersData.map(user => {
 							if (user._id === comment.commenterId) {
-								return <img key={comment.commenterId} src={user.picture} alt={comment.commenterId} />;
+								return <img key={comment.commenterId} src={__dirname + user.picture} alt={comment.commenterId} />;
 							} else return null;
 						})}
 					</div>

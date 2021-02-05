@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/post.action.js';
 
-const DeleteCard = ({ id }) => {
+const DeleteCard = ({id}) => {
 	const dispatch = useDispatch();
 
 	const deleteQuote = () => {
@@ -15,7 +15,7 @@ const DeleteCard = ({ id }) => {
 				deleteQuote();
 			}
 		}}>
-			<img src="./img/icons/trash.svg" alt="trash" />
+			<img src={__dirname + './img/icons/trash.svg'} alt="trash"/>
 		</div>
 	);
 };

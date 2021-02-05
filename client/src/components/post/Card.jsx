@@ -42,7 +42,7 @@ const Card = ({post}) => {
 							if (user._id === post.posterId) {
 								return (
 									<NavLink key={user._id} exact to={`/public-profil/${user._id}`}>
-										<img src={user.picture} alt={user.picture}/>
+										<img src={__dirname + user.picture} alt={user.picture}/>
 									</NavLink>
 								);
 							} else return null;
@@ -76,7 +76,7 @@ const Card = ({post}) => {
 							</div>
 						)}
 						{post.picture && (
-							<img src={post.picture} alt={post.picture} className="card-pic"/>
+							<img src={__dirname + post.picture} alt={post.picture} className="card-pic"/>
 						)}
 						{post.video && (
 							<iframe width="500" height="300" src={post.video} frameBorder="0" title={post._id} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen/>
@@ -84,7 +84,7 @@ const Card = ({post}) => {
 						{userData._id === post.posterId && (
 							<div className="button-container">
 								<div onClick={() => setIsUpdated(!isUpdated)}>
-									<img src="./img/icons/edit.svg" alt="edit"/>
+									<img src={__dirname + './img/icons/edit.svg'} alt="edit"/>
 								</div>
 								<DeleteCard id={post._id}/>
 							</div>
@@ -92,7 +92,7 @@ const Card = ({post}) => {
 						<div className="card-footer">
 							<LikeButton post={post}/>
 							<div className="comment-icon">
-								<img onClick={() => setShowComments(!showComments)} src="./img/icons/message1.svg" alt="comment"/>
+								<img onClick={() => setShowComments(!showComments)} src={__dirname + './img/icons/message1.svg'} alt="comment"/>
 								{post.comments && <span>{post.comments.length}</span>}
 							</div>
 						</div>

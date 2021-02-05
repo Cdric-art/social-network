@@ -1,12 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UidContext } from '../AppContext.jsx';
-import { useContext } from 'react';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteComment, editComment } from '../../actions/post.action.js';
 
-const EditDeleteComment = ({ comment, postId}) => {
+const EditDeleteComment = ({comment, postId}) => {
 
 	const [isAuthor, setIsAuthor] = useState(false);
 	const [edit, setEdit] = useState(false);
@@ -22,7 +19,7 @@ const EditDeleteComment = ({ comment, postId}) => {
 			setEdit(false);
 		}
 	};
-    
+
 	const handleDelete = () => {
 		dispatch(deleteComment(postId, comment._id));
 	};
@@ -40,7 +37,7 @@ const EditDeleteComment = ({ comment, postId}) => {
 		<div className="edit-comment">
 			{isAuthor && !edit && (
 				<span onClick={() => setEdit(!edit)}>
-					<img src="./img/icons/edit.svg" alt="edit"/>
+					<img src={__dirname + './img/icons/edit.svg'} alt="edit"/>
 				</span>
 			)}
 			{isAuthor && edit && (
@@ -55,9 +52,9 @@ const EditDeleteComment = ({ comment, postId}) => {
 								handleDelete();
 							}
 						}}>
-							<img src="./img/icons/trash.svg" alt="trash"/>
+							<img src={__dirname + './img/icons/trash.svg'} alt="trash"/>
 						</span>
-						<input type="submit" value="Valider les modifications" />
+						<input type="submit" value="Valider les modifications"/>
 					</div>
 				</form>
 			)}
