@@ -19,8 +19,8 @@ const FollowThread = () => {
 					result = result.concat(arr[i]);
 				}
 				const sortResult = result.sort((a, b) => {
-					return new Date(b.updatedAt) - new Date(a.updatedAt)
-				})
+					return new Date(b.updatedAt) - new Date(a.updatedAt);
+				});
 				setPostFollow(sortResult);
 			});
 		}
