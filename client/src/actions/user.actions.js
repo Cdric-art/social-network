@@ -8,14 +8,16 @@ export const UNFOLLOW_USER = 'UNFOLLOW_USER';
 
 export const GET_USER_ERRORS = 'GET_USER_ERRORS';
 
+export const CLEAR_NOTIFICATIONS = 'CLEAR_NOTIFICATIONS';
+
 export const getUser = (uid) => {
 	return (dispatch) => {
 		return axios
 			.get(`${process.env.REACT_APP_API_URL}api/user/${uid}`)
 			.then(res => {
-				dispatch({ type: GET_USER, payload: res.data });
+				dispatch({type: GET_USER, payload: res.data});
 			})
-			.catch(err => console.log({ err }));
+			.catch(err => console.log({err}));
 	};
 };
 
@@ -25,18 +27,18 @@ export const uploadPicture = (data, id) => {
 			.post(`${process.env.REACT_APP_API_URL}api/user/upload`, data)
 			.then(res => {
 				if (res.data.errors) {
-					dispatch({ type: GET_USER_ERRORS, payload: res.data.errors });
+					dispatch({type: GET_USER_ERRORS, payload: res.data.errors});
 				} else {
-					dispatch({ type: GET_USER_ERRORS, payload: '' });
+					dispatch({type: GET_USER_ERRORS, payload: ''});
 					return axios
 						.get(`${process.env.REACT_APP_API_URL}api/user/${id}`)
 						.then(res => {
-							dispatch({ type: UPLOAD_PICTURE, payload: res.data.picture});
+							dispatch({type: UPLOAD_PICTURE, payload: res.data.picture});
 						})
-						.catch(err => console.log({ err }));
+						.catch(err => console.log({err}));
 				}
 			})
-			.catch(err => console.log({ err }));
+			.catch(err => console.log({err}));
 	};
 };
 
@@ -45,12 +47,12 @@ export const updateBio = (userId, bio) => {
 		return axios({
 			method: 'put',
 			url: `${process.env.REACT_APP_API_URL}api/user/${userId}`,
-			data: { bio }
+			data: {bio}
 		})
 			.then(() => {
-				dispatch({ type: UPDATE_BIO, payload: bio});
+				dispatch({type: UPDATE_BIO, payload: bio});
 			})
-			.catch(err => console.log({ err }));
+			.catch(err => console.log({err}));
 	};
 };
 
@@ -59,12 +61,12 @@ export const followUser = (followerId, idToFollow) => {
 		return axios({
 			method: 'patch',
 			url: `${process.env.REACT_APP_API_URL}api/user/follow/${followerId}`,
-			data: { idToFollow }
+			data: {idToFollow}
 		})
 			.then(() => {
-				dispatch({ type: FOLLOW_USER, payload: {idToFollow}});
+				dispatch({type: FOLLOW_USER, payload: {idToFollow}});
 			})
-			.catch(err => console.log({ err }));
+			.catch(err => console.log({err}));
 	};
 };
 
@@ -73,11 +75,23 @@ export const unfollowUser = (followerId, idToUnfollow) => {
 		return axios({
 			method: 'patch',
 			url: `${process.env.REACT_APP_API_URL}api/user/unfollow/${followerId}`,
-			data: { idToUnfollow }
+			data: {idToUnfollow}
 		})
 			.then(() => {
-				dispatch({ type: UNFOLLOW_USER, payload: {idToUnfollow}});
+				dispatch({type: UNFOLLOW_USER, payload: {idToUnfollow}});
 			})
-			.catch(err => console.log({ err }));
+			.catch(err => console.log({err}));
+	};
+};
+
+export const clearNotifications = (userId) => {
+	return (dispatch) => {
+		return axios({
+			method: 'patch',
+			url: `${process.env.REACT_APP_API_URL}api/user/notifications/${userId}`,
+		})
+			.then(() => {
+				dispatch({type: 'CLEAR_NOTIFICATIONS'});
+			});
 	};
 };

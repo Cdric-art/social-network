@@ -1,4 +1,11 @@
-import { FOLLOW_USER, GET_USER, UNFOLLOW_USER, UPDATE_BIO, UPLOAD_PICTURE } from '../actions/user.actions.js';
+import {
+	CLEAR_NOTIFICATIONS,
+	FOLLOW_USER,
+	GET_USER,
+	UNFOLLOW_USER,
+	UPDATE_BIO,
+	UPLOAD_PICTURE
+} from '../actions/user.actions.js';
 
 const initialState = {};
 
@@ -25,6 +32,11 @@ export default function userReducer(state = initialState, action) {
 		return {
 			...state,
 			following: state.following.filter(id => id !== action.payload.idToUnfollow)
+		};
+	case CLEAR_NOTIFICATIONS:
+		return {
+			...state,
+			notifications: []
 		};
 	default:
 		return state;

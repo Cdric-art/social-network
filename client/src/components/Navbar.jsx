@@ -4,12 +4,13 @@ import { UidContext } from './AppContext.jsx';
 import { useContext } from 'react';
 import Logout from './log/Logout.jsx';
 import { useSelector } from 'react-redux';
+import Notifications from './Notifications.jsx';
 
 const Navbar = () => {
-    
+
 	const uid = useContext(UidContext);
 	const userData = useSelector(state => state.userReducer);
-    
+
 	return (
 		<nav>
 			<div className="nav-container">
@@ -26,9 +27,10 @@ const Navbar = () => {
 						<li/>
 						<li className="welcome">
 							<NavLink exact to="/profil">
-								<h5>Bienvenue {userData.pseudo}</h5>
+								<h5>{userData.pseudo}</h5>
 							</NavLink>
 						</li>
+						<Notifications userData={userData}/>
 						<Logout/>
 					</ul>
 				) : (

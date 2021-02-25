@@ -12,58 +12,133 @@ nav {
 
   .nav-container {
     display: flex;
-    width: 100%;
     justify-content: space-between;
-    height: 45px;
     align-items: center;
-    
+    width: 90%;
+    height: 45px;
+    margin: 0 auto;
+
     .logo {
       display: flex;
       align-items: center;
-      
+
       h3 {
         transform: translate(15px, 2px);
         font-size: 1.5rem;
         font-family: $font-3;
         color: rgb(64, 64, 64);
       }
+
       img {
         height: 40px;
         width: 40px;
         transform: rotate(-75deg);
       }
     }
-    
+
     ul {
       display: flex;
       align-items: center;
       max-width: 35%;
       justify-content: space-between;
       font-size: 1.2rem;
-      
+
       .welcome {
         transform: translateY(2px);
 
         @media screen and(max-width: 590px) {
           display: none;
         }
-        
+
         h5 {
           font-family: $font-3;
           margin-right: 16px;
           color: rgb(64, 64, 64);
         }
       }
-      
-      li {
-        
-        img {
-          height: 21px;
-          width: 21px;
-          cursor: pointer;
-          display: grid;
-          align-items: center;
-          justify-items: center;
+
+      img {
+        height: 21px;
+        width: 21px;
+        cursor: pointer;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        margin-right: 10px;
+      }
+
+      .notifications {
+        position: relative;
+
+        .text-notif {
+          font-family: $font-1;
+          font-size: .95rem;
+          color: $black;
+        }
+
+        span {
+          position: absolute;
+          bottom: -13px;
+          right: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          color: $white;
+          font-size: 12px;
+          font-weight: bold;
+          height: 18px;
+          width: 18px;
+          border-radius: 50%;
+          background-color: $red;
+          z-index: -1;
+        }
+
+        .notifications-list {
+          position: absolute;
+          top: 60px;
+          right: -10px;
+          min-height: 40px;
+          width: 356px;
+          border: 2px solid #EFEFEF;
+          border-radius: 20px;
+          background-color: $white;
+          z-index: 1;
+
+          .list-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 8px;
+            padding: 5px 8px;
+            background-color: $color-4;
+            border-radius: 20px;
+
+            h6 {
+              font-family: $font-1;
+              font-size: .95rem;
+              color: $black;
+              align-self: center;
+              margin: 0 auto;
+            }
+
+            img {
+              height: 52px;
+              width: 52px;
+              border-radius: 20px;
+              box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.192);
+              object-fit: cover;
+            }
+          }
+          button {
+            display: block;
+            margin: 10px auto;
+            border-radius: 20px;
+            font-size: .8rem;
+            background-color: $color-4;
+
+            &:hover {
+              color: $black;
+            }
+          }
         }
       }
     }
