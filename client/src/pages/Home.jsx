@@ -27,7 +27,7 @@ const Home = () => {
 						{uid && <FriendsHint/>}
 					</div>
 				</div>
-			</div>
+			</div>`
 		</div>
 	);
 };

@@ -47,7 +47,7 @@ module.exports.follow = async (req, res) => {
 		});
 	await UserModel.findOneAndUpdate({ _id: req.body.idToFollow },
 		{
-			$push: { followers: req.params.id }
+			$push: { followers: req.params.id, notifications: req.params.id }
 		})
 		.then(() => res.status(200).json({ message: 'User follow' }))
 		.catch(err => res.status(400).json({ err }));
@@ -68,3 +68,15 @@ module.exports.unfollow = async (req, res) => {
 		.then((doc) => res.status(200).json({ doc }))
 		.catch(err => res.status(400).json({ err }));
 };
+
+module.exports.clearNotifications = async (req, res) => {
+	if (!ObjectID.isValid(req.params.id)) {
+		return res.status(400).send('Id unknown : ' + req.params.id)
+	}
+	await UserModel.findOneAndUpdate({_id: req.params.id},
+		{
+			notifications: ''
+		})
+		.then(() => res.status(200).json({ message: 'Notifications clear' }))
+		.catch(err => res.status(400).json({ err }));
+}

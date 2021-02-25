@@ -40,6 +40,9 @@ const userSchema = new mongoose.Schema(
 		following: {
 			type: [String]
 		},
+		notifications: {
+			type: [String]
+		},
 		likes: {
 			type: [String]
 		}

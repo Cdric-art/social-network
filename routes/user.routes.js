@@ -20,6 +20,9 @@ router.delete('/:id', userController.deleteUser);
 router.patch('/follow/:id', userController.follow);
 router.patch('/unfollow/:id', userController.unfollow);
 
+// Notifications
+router.patch('/notifications/:id', userController.clearNotifications);
+
 // Upload
 router.post('/upload', upload.single('file'), uploadController.uploadProfil);
 
