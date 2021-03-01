@@ -45,8 +45,8 @@ export const isEmpty = (value) => {
 		(typeof value === 'object' && Object.keys(value).length === 0) ||
 		(typeof value === 'string' && value.trim().length === 0);
 };
-export function wait (duration) {
+export function wait(duration) {
 	return new Promise(resolve => {
-		window.setTimeout(resolve, duration)
-	})
+		window.setTimeout(resolve, duration);
+	});
 }
