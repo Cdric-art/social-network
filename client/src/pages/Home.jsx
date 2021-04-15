@@ -6,6 +6,7 @@ import NewPost from '../components/post/NewPost.jsx';
 import Log from '../components/log/Log.jsx';
 import Trends from '../components/Trends.jsx';
 import FriendsHint from '../components/profil/FriendsHint.jsx';
+import SearchBar from '../components/SearchBar.jsx';
 
 const Home = () => {
 
@@ -23,6 +24,7 @@ const Home = () => {
 			<div className="right-side">
 				<div className="right-side-container">
 					<div className="wrapper">
+						{uid && <SearchBar />}
 						<Trends />
 						{uid && <FriendsHint/>}
 					</div>
